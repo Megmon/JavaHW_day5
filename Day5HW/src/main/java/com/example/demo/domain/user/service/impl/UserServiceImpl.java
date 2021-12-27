@@ -29,9 +29,21 @@ public class UserServiceImpl implements UserService{
 		return mapper.findMany();
 	}
 	
-	//ユーザー1件取得
+	//ユーザー取得（1件）
 	@Override
 	public MUser getUserOne(String userId){
 		return mapper.findOne(userId);
+	}
+	
+	//ユーザー更新（1件）
+	@Override
+	public void updateUserOne(String userId,String password,String userName) {
+		mapper.updateOne(userId, password, userName);
+	}
+	
+	//ユーザー削除（1件）
+	@Override
+	public void deleteUserOne(String userId) {
+		int count=mapper.deleteOne(userId);
 	}
 }
